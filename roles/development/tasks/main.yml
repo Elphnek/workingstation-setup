@@ -2,9 +2,6 @@
 - name: Install development packages
   apt:
     name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
       - nodejs
       - npm
       - python3-pip
@@ -23,15 +20,3 @@
     - { name: 'code', classic: true }
     - { name: 'postman' }
     - { name: 'go', classic: true }
-
-- name: Add user to docker group
-  user:
-    name: "{{ ansible_user_id }}"
-    groups: docker
-    append: yes
-
-- name: Enable docker service
-  service:
-    name: docker
-    state: started
-    enabled: yes
