@@ -1,0 +1,32 @@
+---
+- name: Ubuntu Workstation Setup
+  hosts: localhost
+  become: yes
+  
+  pre_tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+      register: apt_update
+      ignore_errors: yes
+      when: not ansible_check_mode
+
+    - name: Install required packages
+      apt:
+        name:
+          - python3-apt
+          - aptitude
+        state: present
+      when: not ansible_check_mode
+
+  roles:
+    - base
+    - development
+    - personal
+    - work
+
+  post_tasks:
+    - name: Show setup completion message
+      debug:
+        msg: "Workstation setup completed successfully!"

@@ -1,0 +1,10 @@
+curl
+git
+git-man
+libcurl3-gnutls:amd64
+libcurl4:amd64
+libcurl4-openssl-dev:amd64
+node-hosted-git-info
+vim-common
+vim-tiny
+wget

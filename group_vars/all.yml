@@ -1,0 +1,26 @@
+---
+# User configuration
+user_home: "{{ ansible_env.HOME }}"
+git_email: "your.email@wix.com"
+git_name: "Your Name"
+
+# Package management
+update_cache: yes
+cache_valid_time: 3600
+
+# Docker configuration
+docker_users:
+  - "{{ ansible_user_id }}"
+
+# Snap configuration
+snap_packages:
+  - name: core
+  - name: firefox
+    classic: true
+  - name: vlc
+  - name: keepassxc
+  - name: code
+    classic: true
+  - name: postman
+  - name: go
+    classic: true

@@ -1,0 +1,1 @@
+deb [signed-by=/etc/apt/trusted.gpg.d/wix-tools.gpg] https://repo.dev.wixpress.com/artifactory/wix-tools-deb wix main

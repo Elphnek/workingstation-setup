@@ -1,0 +1,29 @@
+---
+# Basic work environment setup
+- name: Install work-related packages
+  apt:
+    name:
+      - slack-desktop
+      - spotify-client
+    state: present
+  ignore_errors: yes  # In case repositories aren't available
+
+# Setting up common development tools
+- name: Create work directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - "~/Documents/Work"
+    - "~/Documents/General"
+
+# NPM registry helper aliases (from your bashrc)
+- name: Add NPM registry management aliases
+  lineinfile:
+    path: ~/.bashrc
+    line: "{{ item }}"
+    state: present
+  loop:
+    - 'alias npmprivate="npm config set registry https://npm.dev.wixpress.com && npm config get registry"'
+    - 'alias npmpublic="npm config set registry https://registry.npmjs.org/ && npm config get registry"'

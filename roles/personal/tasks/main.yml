@@ -1,0 +1,18 @@
+---
+- name: Copy personal configurations
+  copy:
+    src: "files/current_config/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: '0644'
+  loop:
+    - { src: 'bashrc', dest: '~/.bashrc' }
+    - { src: 'gitconfig', dest: '~/.gitconfig' }
+
+- name: Configure GNOME settings
+  shell: dconf load / < {{ playbook_dir }}/files/current_config/dconf-settings.ini
+  args:
+    executable: /bin/bash
+
+- name: Configure Guake as default terminal
+  command: "guake --restore-preferences {{ playbook_dir }}/files/current_config/guake_conf"
+  ignore_errors: yes
