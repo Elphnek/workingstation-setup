@@ -7,7 +7,6 @@
       - python3-pip
       - openjdk-11-jdk
       - virtualbox
-      - vagrant
     state: present
 
 - name: Install development snap packages

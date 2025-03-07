@@ -3,3 +3,4 @@
 - AWS CLI
 - Docker + Docker Compose
 - MongoDB Mongosh
+- Vagrant
