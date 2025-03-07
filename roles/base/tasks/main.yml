@@ -8,7 +8,6 @@
     name:
       - curl
       - git
-      - htop
       - net-tools
       - software-properties-common
       - apt-transport-https
@@ -20,6 +19,7 @@
       - gnome-tweaks
       - chrome-gnome-shell
       - deja-dup
+      - btop
     state: present
 
 - name: Install Google Chrome
