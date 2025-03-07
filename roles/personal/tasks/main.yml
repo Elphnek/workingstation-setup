@@ -1,4 +1,10 @@
 ---
+- name: Ensure dbus-x11 is installed
+  become: true
+  apt:
+    name: dbus-x11
+    state: present
+
 - name: Copy personal configurations
   copy:
     src: "files/current_config/{{ item.src }}"
@@ -9,7 +15,7 @@
     - { src: 'gitconfig', dest: '~/.gitconfig' }
 
 - name: Configure GNOME settings
-  shell: dconf load / < {{ playbook_dir }}/files/current_config/dconf-settings.ini
+  shell: dbus-launch dconf load / < {{ playbook_dir }}/files/current_config/dconf-settings.ini
   args:
     executable: /bin/bash
 
