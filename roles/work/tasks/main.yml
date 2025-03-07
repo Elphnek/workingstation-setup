@@ -3,7 +3,7 @@
 - name: Install work-related packages
   apt:
     name:
-      - slack-desktop
+      - slack
       - spotify-client
     state: present
   ignore_errors: yes  # In case repositories aren't available

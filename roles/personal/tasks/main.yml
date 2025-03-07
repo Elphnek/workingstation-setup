@@ -22,3 +22,5 @@
 - name: Configure Guake as default terminal
   command: "guake --restore-preferences {{ playbook_dir }}/files/current_config/guake_conf"
   ignore_errors: yes
+- name: Setup startup applications
+  include_tasks: startup.yml

@@ -1,0 +1,20 @@
+---
+- name: Ensure autostart directory exists
+  file:
+    path: "~/.config/autostart"
+    state: directory
+    mode: '0755'
+
+- name: Configure startup applications
+  copy:
+    dest: "~/.config/autostart/{{ item }}.desktop"
+    content: |
+      [Desktop Entry]
+      Type=Application
+      Name={{ item }}
+      Exec={{ item }}
+      X-GNOME-Autostart-enabled=true
+    mode: '0644'
+  loop:
+    - guake
+    - copyq
