@@ -6,7 +6,6 @@
       - npm
       - python3-pip
       - openjdk-11-jdk
-      - mongodb-mongosh
       - virtualbox
       - vagrant
     state: present
