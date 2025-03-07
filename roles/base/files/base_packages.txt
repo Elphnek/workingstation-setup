@@ -8,3 +8,4 @@ node-hosted-git-info
 vim-common
 vim-tiny
 wget
+dbus-x11
