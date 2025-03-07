@@ -1,0 +1,12 @@
+---
+- name: Personal Configuration Setup
+  hosts: localhost
+  tasks:
+    - name: Include Guake configuration
+      include_tasks: tasks/guake.yml
+    
+    - name: Include keyboard shortcuts
+      include_tasks: tasks/shortcuts.yml
+    
+    - name: Include background setup
+      include_tasks: tasks/background.yml

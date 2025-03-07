@@ -1,0 +1,12 @@
+---
+- name: Load WM keyboard shortcuts
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings"
+    state: present
+    src: "{{ playbook_dir }}/files/shortcuts/wm-shortcuts.conf"
+
+- name: Load media keyboard shortcuts
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys"
+    state: present
+    src: "{{ playbook_dir }}/files/shortcuts/media-shortcuts.conf"

@@ -1,0 +1,6 @@
+---
+- name: Load Guake configuration
+  dconf:
+    key: "/apps/guake"
+    state: present
+    src: "{{ playbook_dir }}/files/guake/settings.conf"
